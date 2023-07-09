@@ -21,29 +21,26 @@ export function activate(context: vscode.ExtensionContext) {
 
 			await gptApi.fetchGptResponse("String").then((message) => {
 				if (message && message.content) {
+
 					result.items.push({
 						insertText: message.content,
-						range: new Range(position.line, position.character, position.line, position.character + String(message.content).length),
 					});
 				} else {
 					const exceptionText = "No response from GPT-3.5";
 					result.items.push({
-						insertText: exceptionText,
-						range: new Range(position.line, position.character, position.line, position.character + exceptionText.length),
+						insertText: exceptionText
 					});
 				}
 			});
 
-			result.items.push({
-				insertText: "Hello world" + String(counter++),
-				range: new Range(position.line, position.character, position.line, position.character + "Hello world".length + 1),
-			});
+			console.log(result);
 
 			return result;
 		},
 	};
 
 	vscode.languages.registerInlineCompletionItemProvider({ pattern: '**' }, inlineProvider);
+
 }
 
 // This method is called when your extension is deactivated
