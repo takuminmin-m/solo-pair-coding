@@ -42,6 +42,11 @@
           "type": "string",
           "default": "",
           "description": "OpenAI Organization ID"
+        },
+        "solo-pair-coding.userName": {
+          "type": "string",
+          "default": "",
+          "description": "User Name"
         }
       }
     }
