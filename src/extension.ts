@@ -21,7 +21,7 @@ export function activate(context: vscode.ExtensionContext) {
 			function delay(ms: number) {
 				return new Promise( resolve => setTimeout(resolve, ms) );
 			}
-			await delay(1500);
+			await delay(3000);
 
 			const result: vscode.InlineCompletionList = {
 				items: [],
@@ -31,8 +31,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 				let s = document.lineAt(position.line).text;
 				let flag = false;
+				/*
 				for(let i=0; i<s.length; i++){
 					if(!(s[i] === " ")){
+						flag = true;
+					}
+				}
+				*/
+				if(position.character > 0){
+					if(s.charAt(position.character - 1) === '}' || s.charAt(position.character - 1) === ')'){
 						flag = true;
 					}
 				}
