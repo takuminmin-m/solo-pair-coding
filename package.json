@@ -30,6 +30,20 @@
           "command": "extension.inline-completion-settings"
         }
       ]
+    },
+    "configuration": {
+      "properties": {
+        "solo-pair-coding.openaiApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API Key"
+        },
+        "solo-pair-coding.openaiOrganizationId": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI Organization ID"
+        }
+      }
     }
   },
   "scripts": {
