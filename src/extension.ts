@@ -5,6 +5,7 @@ import { Range } from 'vscode';
 import * as gptApi from './gpt_api';
 
 let counter = 0;
+let lastEnter = new Date();
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -14,27 +15,45 @@ export function activate(context: vscode.ExtensionContext) {
 	const inlineProvider: vscode.InlineCompletionItemProvider = {
 		async provideInlineCompletionItems(document, position, context, token) {
 			console.log("inline completion triggered");
+			let currentTime = new Date();
+			lastEnter = currentTime;
+
+			function delay(ms: number) {
+				return new Promise( resolve => setTimeout(resolve, ms) );
+			}
+			await delay(1500);
 
 			const result: vscode.InlineCompletionList = {
 				items: [],
 			};
 
-			await gptApi.fetchGptResponse("String").then((message) => {
-				if (message && message.content) {
+			if(currentTime.getTime() === lastEnter.getTime()){
 
-					result.items.push({
-						insertText: message.content,
-					});
-				} else {
-					const exceptionText = "No response from GPT-3.5";
-					result.items.push({
-						insertText: exceptionText
+				let s = document.lineAt(position.line).text;
+				let flag = false;
+				for(let i=0; i<s.length; i++){
+					if(!(s[i] === " ")){
+						flag = true;
+					}
+				}
+				if(!flag){
+					console.log("activated for line " + position.line + " text [" + s + "]");
+					await gptApi.fetchGptResponse(document.getText(), position, document.fileName).then((message) => {
+						if (message && message.content) {
+							result.items.push({
+								insertText: message.content,
+							});
+						} else {
+							const exceptionText = "No response from GPT-3.5";
+							result.items.push({
+								insertText: exceptionText
+							});
+						}
 					});
 				}
-			});
+			}
 
 			console.log(result);
-
 			return result;
 		},
 	};
