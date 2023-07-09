@@ -2,7 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { Range } from 'vscode';
-import { Configuration, OpenAIApi } from "openai";
+import * as gptApi from './gpt_api';
 
 let counter = 0;
 
@@ -19,7 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
 				items: [],
 			};
 
-			await fetchGptResponse("String").then((message) => {
+			await gptApi.fetchGptResponse("String").then((message) => {
 				if (message && message.content) {
 					result.items.push({
 						insertText: message.content,
@@ -48,26 +48,3 @@ export function activate(context: vscode.ExtensionContext) {
 
 // This method is called when your extension is deactivated
 export function deactivate() {}
-
-async function fetchGptResponse(code: string) {
-	const configuration = new Configuration({
-	 	apiKey: vscode.workspace.getConfiguration().get("solo-pair-coding.openaiApiKey"),
-	 	organization: vscode.workspace.getConfiguration().get("solo-pair-coding.openaiOrganizationId"),
-	});
-
-	console.log(configuration);
-
-	const openai = new OpenAIApi(configuration);
-
-	const completion = await openai.createChatCompletion({
-		model: "gpt-3.5-turbo",
-		messages: [{
-			role: "user",
-			content: "Please give me a example of JavaScript code that will print 'Hello world' to the console. Your reply must be single line."
-		}]
-	});
-
-	console.log(completion);
-
-	return completion.data.choices[0].message;
-}
