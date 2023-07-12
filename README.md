@@ -1,71 +1,43 @@
-# solo-pair-coding README
+# solo-pair-coding - A virtual friend who code with you
 
-This is the README for your extension "solo-pair-coding". After writing up a brief description, we recommend including the following sections.
+**Japanese Only**
+
+New AI code completion extension, like your friend.
+
+This extension uses `gpt-3.5-turbo`.
+
+**CAUTION: This extension will send your code to OpenAI.**
+
+## Setup
+
+**Your OpenAI account is required.**
+
+**This extension consumes your OpenAI token, so payment for OpenAI may happen.**
+
+**We suggest you that you should check your OpenAI account regularly.**
+
+### Enter keys
+
+Firstly, you have to enter your API key and organization ID.
+
+- `solo-pair-coding.openaiApiKey`: Your OpenAI API key
+- `solo-pair-coding.openaiOrganizationId`: Your OpenAI Organization ID
+
+### Enter your name
+
+This name will be used in the prompt.
+
+- `solo-pair-coding.userName`: Your name that you want to be called.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+This extension behaves as a inline completion.
 
-For example if there is an image subfolder under your extension project workspace:
-
-\!\[feature X\]\(images/feature-x.png\)
-
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
 ## Release Notes
-
-Users appreciate release notes as you update your extension.
 
 ### 1.0.0
 
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+Initial release of solo-pair-coding
