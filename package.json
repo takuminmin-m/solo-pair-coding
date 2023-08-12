@@ -2,13 +2,23 @@
   "name": "solo-pair-coding",
   "displayName": "solo-pair-coding",
   "description": "code with a virtual friend",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "publisher": "takuminmin0718",
   "engines": {
     "vscode": "^1.79.0"
   },
   "categories": [
     "Other"
   ],
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "bugs": {
+    "url": "https://github.com/takuminmin-m/solo-pair-coding/issues",
+    "email": "takuminmin0718@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/takuminmin-m/solo-pair-coding"
+  },
   "activationEvents": [
     "*"
   ],
