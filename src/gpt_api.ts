@@ -30,7 +30,7 @@ export async function fetchGptResponse(code: string, position: vscode.Position, 
 
 async function generatePrompt(code: string, position: vscode.Position, fileName: string) {
   const characterName = vscode.workspace.getConfiguration().get("solo-pair-coding.characterName");
-  const extensionRoot = vscode.extensions.getExtension("undefined_publisher.solo-pair-coding")?.extensionPath;
+  const extensionRoot = vscode.extensions.getExtension("takuminmin0718.solo-pair-coding")?.extensionPath;
   const promptPath = path.join(
     String(extensionRoot),
     "character_prompts",
