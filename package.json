@@ -14,23 +14,6 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "solo-pair-coding.helloWorld",
-        "title": "Hello World"
-      },
-      {
-        "command": "extension.inline-completion-settings",
-        "title": "My Inline Completion Demo Settings"
-      }
-    ],
-    "menus": {
-      "editor/inlineCompletions/actions": [
-        {
-          "command": "extension.inline-completion-settings"
-        }
-      ]
-    },
     "configuration": {
       "properties": {
         "solo-pair-coding.openaiApiKey": {
@@ -47,6 +30,12 @@
           "type": "string",
           "default": "",
           "description": "User Name"
+        },
+        "solo-pair-coding.characterName": {
+          "type": "string",
+          "default": "miharu",
+          "enum": ["miharu"],
+          "description": "Your virtual friend"
         }
       }
     }

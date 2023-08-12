@@ -10,11 +10,9 @@ let lastEnter = new Date();
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	console.log('Congratulations, your extension "solo-pair-coding" is now active!');
 
 	const inlineProvider: vscode.InlineCompletionItemProvider = {
 		async provideInlineCompletionItems(document, position, context, token) {
-			console.log("inline completion triggered");
 			let currentTime = new Date();
 			lastEnter = currentTime;
 
